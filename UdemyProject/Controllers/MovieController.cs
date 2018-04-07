@@ -42,5 +42,9 @@ namespace UdemyProject.Controllers
             return Content(String.Format("Page index = {0}, Sort by = {1}",pageIndex.ToString(),sortBy));
         }
 
+        public ActionResult MoviesReleased (int month, int year)
+        {
+            return Content(String.Format("Month: {0}, Year: {1}", month, year));
+        }
     }
 }

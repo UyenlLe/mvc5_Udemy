@@ -18,5 +18,29 @@ namespace UdemyProject.Controllers
             };
             return View(movies);
         }
+
+        public ActionResult RandomHttpNotFound()
+        {
+            return HttpNotFound();
+        }
+
+        public ActionResult Edit (int id)
+        {
+            return Content("id = " + id);
+        }
+
+        public ActionResult Index (int? pageIndex, string sortBy)
+        {
+            if (!pageIndex.HasValue)
+            {
+                pageIndex = 1;
+            }
+            if (String.IsNullOrEmpty(sortBy))
+            {
+                sortBy = "Name";
+            }
+            return Content(String.Format("Page index = {0}, Sort by = {1}",pageIndex.ToString(),sortBy));
+        }
+
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UdemyProject.Models;
+using UdemyProject.ViewModels;
 
 namespace UdemyProject.Controllers
 {
@@ -54,6 +55,33 @@ namespace UdemyProject.Controllers
             return Content(String.Format("Month: {0}, Year: {1}", month, year));
         }
 
+        [Route("movie/randommovie")]
+        public ActionResult RandomMovies()
+        {
+            var movie = new Movie()
+            {
+                Name = "Yeu em bat chap"
+            };
 
+            var customers = new List<Customer>()
+            {
+                new Customer()
+                {
+                    Name = "Bao Uyen"
+                },
+                new Customer()
+                {
+                    Name = "Bao Quyen"
+                }
+            };
+
+            var randomMovies = new RandomMovieViewModel()
+            {
+                Movie = movie,
+                Customer = customers
+            };
+
+            return View(randomMovies);
+        }
     }
 }

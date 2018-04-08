@@ -5,7 +5,7 @@ using System.Web;
 
 namespace UdemyProject.Models
 {
-    public class Movies
+    public class Customer
     {
         public int Id { get; set; }
         public string Name { get; set; }

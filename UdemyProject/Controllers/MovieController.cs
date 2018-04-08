@@ -12,7 +12,7 @@ namespace UdemyProject.Controllers
         // GET: Movie
         public ActionResult Random()
         {
-            var movies = new Movies()
+            var movies = new Movie()
             {
                 Name = "Ella"
             };

@@ -24,12 +24,12 @@ namespace UdemyProject.Controllers
             return HttpNotFound();
         }
 
-        public ActionResult Edit (int id)
+        public ActionResult Edit(int id)
         {
             return Content("id = " + id);
         }
 
-        public ActionResult Index (int? pageIndex, string sortBy)
+        public ActionResult Index(int? pageIndex, string sortBy)
         {
             if (!pageIndex.HasValue)
             {
@@ -39,12 +39,21 @@ namespace UdemyProject.Controllers
             {
                 sortBy = "Name";
             }
-            return Content(String.Format("Page index = {0}, Sort by = {1}",pageIndex.ToString(),sortBy));
+            return Content(String.Format("Page index = {0}, Sort by = {1}", pageIndex.ToString(), sortBy));
         }
 
-        public ActionResult MoviesReleased (int month, int year)
+        public ActionResult MoviesReleased(int month, int year)
         {
             return Content(String.Format("Month: {0}, Year: {1}", month, year));
         }
+
+        [Route("movies/released2/{year}/{month}")]
+
+        public ActionResult MoviesReleased2 (int month, int year)
+        {
+            return Content(String.Format("Month: {0}, Year: {1}", month, year));
+        }
+
+
     }
 }

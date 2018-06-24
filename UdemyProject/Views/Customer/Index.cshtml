@@ -1,0 +1,32 @@
+﻿@model IEnumerable<UdemyProject.Models.Customer>
+@{ 
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer View</h2>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>MembershipType</th>
+                <th>IsSubscribedToNewsLetter</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cus in Model)
+    {
+        <tr>
+            <td>@cus.Name</td>
+            <td>@cus.MembershipType</td>
+            <td>@cus.IsSubscribedToNewsLetter</td>
+            <td><a href="@Url.Action("Details", "Customer", new { Id = @cus.Id})">Details</a></td>
+        </tr> 
+}
+        </tbody>
+    </table>       
+</div>
+
+
+

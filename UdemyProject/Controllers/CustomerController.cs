@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using UdemyProject.Models;
+using System.Data.Entity;
 
 namespace UdemyProject.Controllers
 {
@@ -22,7 +23,7 @@ namespace UdemyProject.Controllers
         public ActionResult Index()
         {
 
-            var customers = _context.Customers.ToList();
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
             return View(customers);
         }
